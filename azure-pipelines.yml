@@ -11,20 +11,9 @@ pool:
   
 
 steps:
-- task: UsePythonVersion@0
+- task: PythonScript@0
   inputs:
-   versionSpec: '3.x'
-   addToPath: true
-  displayName: 'use python 3.x'
-  
-- script:|
-  #install dependencies and build your application
-  #pip install -r requirements.txt
-  python setup.py build
-  displayName: 'Build'
-
-- script: |
-    # run your tests
-    pytest
-  displayName: 'Run tests'
+  scriptSource: `inline`
+  script: |
+    print('Hello, world!')
 
